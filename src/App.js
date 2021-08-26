@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { AddCat } from './components/AddCat';
+import { GridElement } from './components/GridElement';
 
 const App = () => {
-  const [categories, setCategories] = useState(['One Piece', 'Death Note', 'Bleach'])
+  const [categories, setCategories] = useState(['One Piece'])
 
   // const handleAdd = () => {
   //   //Mutar
@@ -17,9 +18,10 @@ const App = () => {
       <hr />
       {/* <button onClick={handleAdd}>Agregar</button> */}
       <ol>
-        {categories.map(cat => {
-          return <li> {cat} </li>
-        })}
+        {categories.map(cat => (
+           <GridElement key={ cat } category={ cat } />
+        )
+      )}
       </ol>
     </>
   );
