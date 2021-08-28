@@ -1,33 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { GifGridItem } from './GifGridItem'
+import { getGifs } from '../helpers/getGifs'
 
 export const GridElement =  ({category}) => {
 
     const [images, setImages] = useState([])
     useEffect(() => {
-        getGifs()
-    }, [])
-    const getGifs = async ( ) => {
-        const url = 'https://api.giphy.com/v1/gifs/search?q=rick=and=morty&limit=9&api_key=eIvwxmR01TBECGPOFpCriKzLW1gsB7MZ'
-        const res = await fetch(url)
-        const { data } = await res.json()
-
-        const gifs = data.map( gif => {
-            return {
-                id: gif.id,
-                title: gif.title,
-                url: gif.images?.downsized_medium.url
-            }
-        })
-
-        setImages(gifs);
-    }
+        getGifs(category)
+            .then(setImages)
+    }, [category])
 
     return (
-        <div>
+        <>
             <h3>{ category }</h3>
-            <ol>
+            <div  className="card-grid">
                 {
                     images.map((img) => {
                         return <GifGridItem
@@ -36,8 +23,8 @@ export const GridElement =  ({category}) => {
                                 />
                     })
                 }
-            </ol>
-        </div>
+            </div>
+        </>
     )
 }
 

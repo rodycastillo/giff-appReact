@@ -3,7 +3,7 @@ import { AddCat } from './components/AddCat';
 import { GridElement } from './components/GridElement';
 
 const App = () => {
-  const [categories, setCategories] = useState(['One Piece'])
+  const [categories, setCategories] = useState(['Dragon Ball'])
 
   // const handleAdd = () => {
   //   //Mutar
@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <>
-      <h2>GiffExpertApp</h2>
+      <h2>GiffsApp</h2>
       <AddCat setCategories={ setCategories }/>
       <hr />
       {/* <button onClick={handleAdd}>Agregar</button> */}
