@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
 export const getGifs = async ({category}) => {
-    const url = `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=15&api_key=eIvwxmR01TBECGPOFpCriKzLW1gsB7MZ`
+    const url = `https://api.giphy.com/v1/gifs/search?q=${encodeURI(category)}&limit=21&api_key=eIvwxmR01TBECGPOFpCriKzLW1gsB7MZ`
     const res = await fetch(url)
     const { data } = await res.json()
 
